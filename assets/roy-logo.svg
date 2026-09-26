@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+<title id="title">ROY Event Management</title><desc id="desc">Elegant ROY monogram with botanical line art.</desc>
+<rect width="900" height="360" rx="8" fill="#f7f3ec"/>
+<g fill="none" stroke="#c99373" stroke-width="2.2" opacity=".72">
+<path d="M452 56c-31 25-44 58-39 99 37-9 60-34 68-75-9 18-22 34-40 47m-5-58c-26-25-55-34-88-27 10 33 34 52 72 57-18-9-34-21-47-37m105 33c27-29 59-39 95-29-11 34-37 54-77 58 20-10 37-24 50-41"/>
+<path d="M385 155c-42-17-78-11-109 18 27 27 61 32 102 15-21 2-41-1-60-10m196-21c42-17 78-11 109 18-27 27-61 32-102 15 21 2 41-1 60-10"/>
+<path d="M411 204c-32 23-49 53-50 90 35-3 61-23 78-61-14 17-31 30-51 39m101-68c32 23 49 53 50 90-35-3-61-23-78-61 14 17 31 30 51 39"/>
+<circle cx="450" cy="178" r="73"/><path d="M450 105c-27 20-41 44-41 73s14 53 41 73c27-20 41-44 41-73s-14-53-41-73z"/>
+</g>
+<text x="450" y="220" text-anchor="middle" font-family="Georgia,Times New Roman,serif" font-size="210" font-weight="700" letter-spacing="18" fill="#111">ROY</text>
+<g fill="none" stroke="#c99373" stroke-width="2" opacity=".75"><path d="M410 112c15 21 25 43 29 67m51-70c-16 22-27 45-31 70m-95-62c22 13 41 30 56 50m116-51c-22 13-41 30-56 50"/></g>
+<rect x="105" y="176" width="690" height="78" fill="#f7f3ec"/>
+<path d="M105 176h690M105 254h690" stroke="#111" stroke-width="2"/>
+<text x="450" y="226" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" letter-spacing="17" fill="#111">EVENT MANAGEMENT</text>
+</svg>
