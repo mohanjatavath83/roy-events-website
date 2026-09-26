@@ -52,3 +52,11 @@ img,svg,video{max-width:100%;height:auto}
  footer{display:block}
  footer>*{margin-bottom:20px!important}
 }
+
+/* ROY responsive brand logo */
+.brand-logo{display:block;width:clamp(150px,18vw,245px);line-height:0}
+.brand-logo img{display:block;width:100%;height:auto}
+.top .brand-logo img{background:#f7f3ec;border-radius:2px}
+.footer-logo{width:190px}
+@media(max-width:850px){.brand-logo{width:165px}}
+@media(max-width:520px){.brand-logo{width:145px}.footer-logo{width:170px}}
