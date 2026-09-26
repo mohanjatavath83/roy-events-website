@@ -51,3 +51,81 @@
 .journey-card-copy h3{margin-bottom:12px}
 @media(max-width:820px){.journey-cards article>img{height:260px}}
 @media(max-width:520px){.journey-cards{grid-template-columns:1fr!important}.journey-cards article>img{height:380px}}
+
+/* Mobile-first polish v22 */
+@media(max-width:600px){
+  .header{position:absolute;height:70px;padding:0 18px;background:linear-gradient(180deg,rgba(20,14,11,.42),transparent);border:0}
+  .brand{width:126px;padding:5px 8px}
+  .menu{font-size:9px;padding:12px 0}
+  .header nav{top:70px;padding:28px 24px;gap:22px;box-shadow:0 18px 35px rgba(25,15,10,.12)}
+  .header nav a{font-size:11px}
+  .hero{height:88svh;min-height:600px;padding:100px 24px 52px;align-items:flex-end}
+  .hero-image{background-position:58% center}
+  .hero-shade{background:linear-gradient(0deg,rgba(30,17,12,.82) 0%,rgba(30,17,12,.2) 68%,rgba(20,10,8,.22) 100%)}
+  .hero-copy{max-width:100%}
+  .eyebrow{font-size:8px;letter-spacing:2.3px}
+  .hero h1{font-size:clamp(54px,16vw,70px);line-height:.83;letter-spacing:-1.5px;margin:22px 0}
+  .hero-intro{font-size:17px;line-height:1.45;max-width:320px}
+  .welcome{padding:76px 22px}
+  .welcome h2,.journey h2,.closing h2,.mosaic-copy h2,.section-head h2,.signature h2,.studios h2{font-size:clamp(39px,12vw,50px);line-height:.94}
+  .welcome>p:not(.eyebrow){font-size:18px;line-height:1.55}
+  .mosaic{display:block;padding:0 16px 72px}
+  .mosaic-copy{padding:0 6px 28px}
+  .celebration-carousel,.carousel-track{height:64svh;min-height:480px;max-height:620px}
+  .carousel-slide img{object-position:center}
+  .carousel-btn{width:38px;height:38px;font-size:16px}
+  .carousel-btn.prev{left:9px}.carousel-btn.next{right:9px}
+  .mosaic-card{height:56svh;min-height:400px;margin-top:12px}
+  .mosaic-card div{left:22px;bottom:22px}
+  .mosaic-card h3{font-size:36px}
+  .signature-photo{min-height:52svh}
+  .signature-copy{padding:66px 22px}
+  .services{padding:72px 22px}
+  .section-head{gap:20px}
+  .service-grid{margin-top:45px}
+  .service-grid article{padding:25px 4px}
+  .service-grid h3{font-size:30px}
+  .service-grid p{font-size:11px}
+  .experience{min-height:72svh;padding:72px 24px;align-items:flex-end;background-position:center}
+  .experience h2{font-size:62px}
+  .journey{padding:76px 16px}
+  .steps{margin-top:42px;border:0;gap:14px}
+  .journey-cards article{border:1px solid var(--line);text-align:left}
+  .journey-cards article>img{height:auto;aspect-ratio:4/3;object-fit:cover}
+  .journey-card-copy{padding:22px}
+  .journey-card-copy b{font-size:30px;margin-bottom:10px}
+  .journey-card-copy h3{font-size:34px;margin:8px 0}
+  .journey-card-copy p{font-size:11px}
+  .studios{padding:76px 16px}
+  .studio-copy{margin-bottom:45px;padding:0 6px}
+  .studio-card{height:62svh;min-height:430px;padding:24px}
+  .studio-card h3{font-size:34px}
+  .video-stories{padding:76px 16px}
+  .video-head{margin:0 6px 38px}
+  .video-head h2,.reviews-head h2{font-size:48px}
+  .video-track{gap:14px;padding:0 6px 8px}
+  .video-card{flex-basis:84vw}
+  .video-card video{aspect-ratio:9/13;border-radius:2px}
+  .reviews{padding:76px 16px;text-align:left}
+  .reviews-head{margin:0 6px 38px}
+  .review-track{gap:12px}
+  .review-card{flex-basis:92%;padding:30px 24px}
+  .review-card blockquote{font-size:28px;margin:22px 0}
+  .team{padding:76px 16px}
+  .team-heading{margin-bottom:42px;padding:0 6px}
+  .team-heading h2{font-size:48px}
+  .team-grid{grid-template-columns:1fr 1fr;gap:30px 10px}
+  .team-member h3{font-size:27px}
+  .team-role{font-size:7px;letter-spacing:.7px}
+  .closing{padding:80px 22px}
+  .gold-btn{padding:15px 18px;line-height:1.4}
+  .contact{padding:58px 22px;gap:30px}
+  .contact a{overflow-wrap:anywhere}
+  footer{padding:24px 22px}
+}
+@media(max-width:380px){
+  .hero h1{font-size:52px}
+  .team-grid{grid-template-columns:1fr}
+  .team-avatar{aspect-ratio:4/4.8}
+  .video-card{flex-basis:88vw}
+}
