@@ -22,3 +22,9 @@
 .team-role{font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:#75675d;margin-top:10px}
 @media(max-width:950px){.team-grid{grid-template-columns:repeat(2,1fr);gap:45px 20px}}
 @media(max-width:520px){.team{padding:90px 7vw}.team-heading{margin-bottom:50px}.team-heading h2{font-size:48px}.team-grid{grid-template-columns:1fr 1fr;gap:38px 12px}.team-member h3{font-size:28px}.team-role{font-size:7px;line-height:1.5}.team-avatar span{width:42px;height:42px}}
+
+/* Team portrait photo */
+.team-avatar{background:#eee;border-radius:2px}
+.team-avatar:before,.team-avatar:after{display:none}
+.team-avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .6s ease}
+.team-member:hover .team-avatar img{transform:scale(1.035)}
