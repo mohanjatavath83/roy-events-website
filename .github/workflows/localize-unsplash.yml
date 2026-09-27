@@ -1,0 +1,92 @@
+name: Localize Unsplash images
+
+on:
+  push:
+    paths:
+      - '.github/workflows/localize-unsplash.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  localize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - name: Download Unsplash images into repository
+        run: |
+          set -e
+          mkdir -p assets/images/{hero,celebrations,services,journey,experience,studios,videos}
+          curl -L --fail "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=90" -o assets/images/hero/hero-wedding.jpg
+          curl -L --fail "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1400&q=88" -o assets/images/celebrations/wedding-decor.jpg
+          curl -L --fail "https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1500&q=88" -o assets/images/celebrations/celebration-styling.jpg
+          curl -L --fail "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=90" -o assets/images/celebrations/elegant-venue.jpg
+          curl -L --fail "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2200&q=88" -o assets/images/experience/live-entertainment.jpg
+          curl -L --fail "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1600&q=90" -o assets/images/services/stage-lighting.jpg
+          curl -L --fail "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1600&q=90" -o assets/images/services/food-catering.jpg
+          curl -L --fail "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=90" -o assets/images/services/guest-experience.jpg
+          curl -L --fail "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85" -o assets/images/journey/listen.jpg
+          curl -L --fail "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=88" -o assets/images/studios/wedding-film.jpg
+          curl -L --fail "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1100&q=88" -o assets/images/studios/creative-shoot.jpg
+      - name: Replace Unsplash URLs with local paths
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          files = [Path("index.html"), Path("styles.css")]
+          replacements = {
+            "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=90": "assets/images/hero/hero-wedding.jpg",
+            "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85": "assets/images/hero/hero-wedding.jpg",
+            "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80": "assets/images/hero/hero-wedding.jpg",
+            "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1200&q=88": "assets/images/celebrations/wedding-decor.jpg",
+            "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1400&q=88": "assets/images/celebrations/wedding-decor.jpg",
+            "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=80": "assets/images/celebrations/wedding-decor.jpg",
+            "https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=88": "assets/images/celebrations/celebration-styling.jpg",
+            "https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1400&q=88": "assets/images/celebrations/celebration-styling.jpg",
+            "https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1500&q=88": "assets/images/celebrations/celebration-styling.jpg",
+            "https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=85": "assets/images/celebrations/celebration-styling.jpg",
+            "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=88": "assets/images/celebrations/elegant-venue.jpg",
+            "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=88": "assets/images/celebrations/elegant-venue.jpg",
+            "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=90": "assets/images/celebrations/elegant-venue.jpg",
+            "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85": "assets/images/celebrations/elegant-venue.jpg",
+            "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=90": "assets/images/experience/live-entertainment.jpg",
+            "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2200&q=88": "assets/images/experience/live-entertainment.jpg",
+            "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1600&q=90": "assets/images/services/stage-lighting.jpg",
+            "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1600&q=90": "assets/images/services/food-catering.jpg",
+            "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=90": "assets/images/services/guest-experience.jpg",
+            "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85": "assets/images/journey/listen.jpg",
+            "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=88": "assets/images/studios/wedding-film.jpg",
+            "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80": "assets/images/studios/wedding-film.jpg",
+            "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1100&q=88": "assets/images/studios/creative-shoot.jpg",
+          }
+          for p in files:
+              s=p.read_text()
+              for old,new in replacements.items(): s=s.replace(old,new)
+              p.write_text(s)
+          remaining=[]
+          for p in files:
+              if "images.unsplash.com" in p.read_text(): remaining.append(str(p))
+          if remaining:
+              raise SystemExit("Unsplash references remain in: " + ", ".join(remaining))
+          PY
+      - name: Organize service images
+        run: |
+          cp assets/images/celebrations/elegant-venue.jpg assets/images/services/decor-themes.jpg
+          cp assets/images/experience/live-entertainment.jpg assets/images/services/entertainment.jpg
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path("index.html"); s=p.read_text()
+          s=s.replace("assets/images/celebrations/elegant-venue.jpg\" alt=\"Luxury floral wedding décor", "assets/images/services/decor-themes.jpg\" alt=\"Luxury floral wedding décor")
+          s=s.replace("assets/images/experience/live-entertainment.jpg\" alt=\"Live event entertainment", "assets/images/services/entertainment.jpg\" alt=\"Live event entertainment")
+          p.write_text(s)
+          PY
+      - name: Commit localized images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html styles.css assets/images
+          git diff --cached --quiet && exit 0
+          git commit -m "Store website images locally instead of Unsplash [skip ci]"
+          git push origin master
